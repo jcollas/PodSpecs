@@ -1,4 +1,4 @@
 PodSpecs
 ========
 
-CocoaPod specifications of open source libraries
+CocoaPod specifications of open source libraries.  
