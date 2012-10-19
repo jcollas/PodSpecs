@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
 
-  s.header_mappings_dir = 'include'
+#  s.header_mappings_dir = 'include'
 
   def s.pre_install(pod, target_definition)
     platform_config = <<-CONFIG_H
@@ -124,10 +124,16 @@ VERSION_H
     File.open("#{pod.root}/include/geos/version.h", "w") do |file|
       file.puts version_config
     end
+
+    File.open("#{pod.root}/capi/geos_c.h.in", "r") do |infile|
+      File.open("#{pod.root}/capi/geos_c.h", "w") do |file|
+        file.puts infile.read;
+      end
+    end
   end
 
-  s.source_files = FileList['src/**/*.{cpp,h}'].exclude(/tests/), FileList['include/**'].exclude(/(CMakeLists.txt|\*.{in,am,txt,cmake,vc})/)
+  s.source_files = FileList['src/**/*.{cpp,h}'].exclude(/tests/), FileList['include/**'].exclude(/(CMakeLists.txt|\*.{in,am,txt,cmake,vc})/), 'capi/*.{cpp,h,in}'
 
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include' }
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi' }
 
 end

@@ -12,8 +12,11 @@ Pod::Spec.new do |s|
 
   s.header_mappings_dir = "libspatialite-3.0.1"
 
-  s.source_files = "libspatialite-3.0.1/src/**"
+  s.source_files = "libspatialite-3.0.1/src/**/*.{c,h}"
 
   s.library 	= 'sqlite3'
+  s.dependency 'freexl'
+
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/libspatialite/libspatialite-3.0.1/src/headers' }
 
 end
