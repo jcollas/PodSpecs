@@ -20,4 +20,6 @@ Pod::Spec.new do |s|
   s.dependency 'clipper', '4.3.0'
   s.dependency 'boost/math-includes'
 
+  s.frameworks = 'UIKit'
+
 end
