@@ -58,9 +58,6 @@ extern "C"
 #include <inttypes.h>
 }
 #endif
-#if defined(__GNUC__) && defined(_WIN32)
-#include <float.h>
-#endif
 #include <limits> // for std::numeric_limits
 #define DoubleNotANumber std::numeric_limits<double>::quiet_NaN()
 #define DoubleInfinity std::numeric_limits<double>::infinity()
@@ -74,39 +71,14 @@ extern "C"
    typedef long long int int64;
 # else
    typedef long int int64;
-#  ifndef HAVE_LONG_INT_64
-#   define INT64_IS_REALLY32 1
-#   warning "Could not find 64bit integer definition!"
-#  endif
 # endif
 #endif
-#if defined(HAVE_FINITE) && !defined(HAVE_ISFINITE)
-# define FINITE(x) (finite(x))
-#else
-# if defined(_MSC_VER)
-#  define FINITE(x) _finite(static_cast<double>(x))    
-# else
 #  define FINITE(x) (isfinite(x))
-# endif
-#endif
 
 #if defined(HAVE_ISNAN)
 # define ISNAN(x) (isnan(x))
 #else
-# if defined(_MSC_VER)
-#  define ISNAN(x) _isnan(x)
-# elif defined(__MINGW32__)
 #  define ISNAN(x) (std::isnan(x))
-# elif defined(__OSX__) || defined(__APPLE__)
-#  define ISNAN(x) (std::isnan(x))
-# elif defined(__sun) || defined(__sun__)
-#  include <math.h>
-#  define ISNAN(x) (::isnan(x))
-# endif
-#endif
-
-#ifndef FINITE
-#error "Can not compile without finite or isfinite function or macro"
 #endif
 
 #ifndef ISNAN
