@@ -8,10 +8,35 @@ Pod::Spec.new do |s|
 		    "Martin Davis" => "mbdavis@refractions.net" }
   s.source	= { :svn => "http://svn.osgeo.org/geos", :tag => '3.3.5' }
 
+  $ver_info =  { "@VERSION@" => "3.3.5",
+		"@VERSION_MAJOR@" => "3",
+		"@VERSION_MINOR@" => "3",
+		"@VERSION_PATCH@" => "5",
+		"@JTS_PORT@" => "1.12.0",
+		"@CAPI_VERSION@" => "1.7.5",
+		"@CAPI_VERSION_MAJOR@" => "1",
+		"@CAPI_VERSION_MINOR@" => "7",
+		"@CAPI_VERSION_PATCH@" => "5" }
+
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
 
 #  s.header_mappings_dir = 'include'
+
+  # process .h.in define files.
+  def s.process_h_in(h_filename, contents, pattern, substs)
+    File.open(h_filename, "w") do |h_file|
+      if (contents.nil?)
+        File.open("#{h_filename}.in", "r") do |in_file|
+          contents = in_file.read
+        end
+      end
+      if (!pattern.nil?)
+        contents = contents.gsub(pattern, substs)
+      end
+      h_file.puts contents
+    end
+  end
 
   def s.pre_install(pod, target_definition)
     platform_config = <<-CONFIG_H
@@ -91,36 +116,10 @@ extern "C"
 #endif
 CONFIG_H
 
-    version_config = <<-VERSION_H
-#define GEOS_VERSION_MAJOR 3
-#define GEOS_VERSION_MINOR 4
-#define GEOS_VERSION_PATCH 0dev
-#define GEOS_VERSION "3.4.0dev"
-#define GEOS_JTS_PORT "1.12.0"
-VERSION_H
+    process_h_in("#{pod.root}/include/geos/platform.h", platform_config, nil, nil);
+    process_h_in("#{pod.root}/include/geos/version.h", nil, /@.*?@/, $ver_info);
+    process_h_in("#{pod.root}/capi/geos_c.h", nil, /@.*?@/, $ver_info);
 
-    File.open("#{pod.root}/include/geos/platform.h", "w") do |file|
-      file.puts platform_config
-    end
-    File.open("#{pod.root}/include/geos/version.h", "w") do |file|
-      file.puts version_config
-    end
-
-    ver_info =  { "@VERSION@" => "3.4.0dev",
-		"@VERSION_MAJOR@" => "3",
-		"@VERSION_MINOR@" => "4",
-		"@VERSION_PATCH@" => "0dev",
-		"@JTS_PORT@" => "1.12.0",
-		"@CAPI_VERSION@" => "",
-		"@CAPI_VERSION_MAJOR@" => "",
-		"@CAPI_VERSION_MINOR@" => "",
-		"@CAPI_VERSION_PATCH@" => "" }
-
-    File.open("#{pod.root}/capi/geos_c.h.in", "r") do |infile|
-      File.open("#{pod.root}/capi/geos_c.h", "w") do |file|
-        file.puts infile.read;
-      end
-    end
 #    File.delete("#{pod.root}/capi/geos_c.h.in");
   end
 
