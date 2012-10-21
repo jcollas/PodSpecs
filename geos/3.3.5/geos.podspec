@@ -92,30 +92,11 @@ extern "C"
 CONFIG_H
 
     version_config = <<-VERSION_H
-#ifndef GEOS_VERSION_H_INCLUDED
-#define GEOS_VERSION_H_INCLUDED
-
-#ifndef GEOS_VERSION_MAJOR
 #define GEOS_VERSION_MAJOR 3
-#endif
-
-#ifndef GEOS_VERSION_MINOR
 #define GEOS_VERSION_MINOR 4
-#endif
-
-#ifndef GEOS_VERSION_PATCH
 #define GEOS_VERSION_PATCH 0dev
-#endif
-
-#ifndef GEOS_VERSION
 #define GEOS_VERSION "3.4.0dev"
-#endif
-
-#ifndef GEOS_JTS_PORT
 #define GEOS_JTS_PORT "1.12.0"
-#endif
-
-#endif // GEOS_VERSION_H_INCLUDED
 VERSION_H
 
     File.open("#{pod.root}/include/geos/platform.h", "w") do |file|
@@ -125,14 +106,25 @@ VERSION_H
       file.puts version_config
     end
 
+    ver_info =  { "@VERSION@" => "3.4.0dev",
+		"@VERSION_MAJOR@" => "3",
+		"@VERSION_MINOR@" => "4",
+		"@VERSION_PATCH@" => "0dev",
+		"@JTS_PORT@" => "1.12.0",
+		"@CAPI_VERSION@" => "",
+		"@CAPI_VERSION_MAJOR@" => "",
+		"@CAPI_VERSION_MINOR@" => "",
+		"@CAPI_VERSION_PATCH@" => "" }
+
     File.open("#{pod.root}/capi/geos_c.h.in", "r") do |infile|
       File.open("#{pod.root}/capi/geos_c.h", "w") do |file|
         file.puts infile.read;
       end
     end
+#    File.delete("#{pod.root}/capi/geos_c.h.in");
   end
 
-  s.source_files = FileList['src/**/*.{cpp,h}'].exclude(/tests/), FileList['include/**'].exclude(/(CMakeLists.txt|\*.{in,am,txt,cmake,vc})/), 'capi/*.{cpp,h,in}'
+  s.source_files = FileList['src/**/*.{cpp,h}'].exclude(/tests/), 'include/**', 'capi/*.{cpp,h,in}'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi' }
 

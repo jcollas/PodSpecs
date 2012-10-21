@@ -34,7 +34,6 @@ As of May 2008 PROJ.4 has become part of the  MetaCRS project, a confederation o
 #define HAVE_SYS_STAT_H 1
 #define HAVE_SYS_TYPES_H 1
 #define HAVE_UNISTD_H 1
-/* #undef JNI_ENABLED */
 #define PACKAGE "proj"
 #define PACKAGE_BUGREPORT "warmerdam@pobox.com"
 #define PACKAGE_NAME "PROJ.4 Projections"

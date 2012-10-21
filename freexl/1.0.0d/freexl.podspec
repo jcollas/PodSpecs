@@ -10,8 +10,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
 
-#  s.header_mappings_dir = "freexl-1.0.0d"
-
   def s.pre_install(pod, target_definition)
     config = <<-CONFIG_H
 #define HAVE_DLFCN_H 1
@@ -51,8 +49,6 @@ CONFIG_H
   end
 
   s.source_files = "freexl-1.0.0d/src/*.c", "freexl-1.0.0d/headers/*.h"
-
-#  s.library 	= 'sqlite3'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/freexl/freexl-1.0.0d/headers' }
 
