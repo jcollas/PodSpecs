@@ -3,8 +3,8 @@ Pod::Spec.new do |s|
   s.version	= "3.0.1"
   s.summary	= "Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms."
   s.homepage	= "http://eigen.tuxfamily.org/index.php?title=Main_Page"
-  s.license	= { :type => "Mozilla Public License v2",
-                    :file => "COPYING.MPL2" }
+  s.license	= { :type => "GNU LGPL 2.1",
+                    :file => "COPYING.LGPL" }
   s.author	= "Benoît Jacob", "Gaël Guennebaud"
   s.source	= { :hg => "https://bitbucket.org/eigen/eigen", :revision => "3.0.1" }
 

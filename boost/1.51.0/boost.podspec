@@ -36,6 +36,7 @@ Pod::Spec.new do |s|
 				'boost_1_51_0/boost/smart_ptr/detail/shared_count.hpp',
 				'boost_1_51_0/boost/smart_ptr/bad_weak_ptr.hpp',
 				'boost_1_51_0/boost/smart_ptr/detail/sp_counted_base.hpp',
+				'boost_1_51_0/boost/smart_ptr/detail/sp_counted_base_spin.hpp',
 				'boost_1_51_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp',
 				'boost_1_51_0/boost/detail/sp_typeinfo.hpp',
 				'boost_1_51_0/boost/smart_ptr/detail/sp_has_sync.hpp',
