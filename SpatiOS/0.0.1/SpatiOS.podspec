@@ -9,11 +9,6 @@ Pod::Spec.new do |s|
 
   s.platform	 = :ios
 
-#  s.prefix_header_contents = '#import "MKNetworkKit.h"'
-  
-#  s.dependency 'MKNetworkKit', '0.83'
-#  s.dependency 'RSOAuthEngine'
-  s.dependency 'ASIHTTPRequest/ASIWebPageRequest'
   s.dependency 'SoloComponents-iOS'
   s.dependency 'UIDeviceAddition'
   s.dependency 'geos'
