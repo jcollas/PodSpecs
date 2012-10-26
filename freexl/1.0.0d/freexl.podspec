@@ -7,6 +7,8 @@ Pod::Spec.new do |s|
   s.author	= { " Alessandro Furieri" => "a.furieri@lqt.it" }
   s.source	= { :http => "http://www.gaia-gis.it/gaia-sins/freexl-1.0.0d.tar.gz" }
 
+  s.ios.compiler_flags = '-U__APPLE__'
+
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
 
@@ -49,6 +51,8 @@ CONFIG_H
   end
 
   s.source_files = "freexl-1.0.0d/src/*.c", "freexl-1.0.0d/headers/*.h"
+
+  s.libraries = 'iconv', 'charset'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/freexl/freexl-1.0.0d/headers' }
 

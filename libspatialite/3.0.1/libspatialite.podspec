@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.source	= { :http => "http://www.gaia-gis.it/gaia-sins/libspatialite-amalgamation-3.0.1.tar.gz" }
 
   s.compiler_flags = '-DVERSION=\"3.0.1\" -DOMIT_GEOCALLBACKS -DSPL_AMALGAMATION=1'
+  s.ios.compiler_flags = '-U__APPLE__'
 
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
