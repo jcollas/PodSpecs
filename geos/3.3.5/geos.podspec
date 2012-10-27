@@ -21,7 +21,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
 
-#  s.compiler_flags = '-U__OBJC__'
+  # gross hack to make this work with AFNetworking
+  s.compiler_flags = '-D_SYSTEMCONFIGURATION_H -D__MOBILECORESERVICES__ -D__CORESERVICES__'
 #  s.header_mappings_dir = 'include'
 
   # process .h.in define files.

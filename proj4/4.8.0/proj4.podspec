@@ -18,6 +18,9 @@ As of May 2008 PROJ.4 has become part of the  MetaCRS project, a confederation o
 		    "Gerald Evenden" => "noreply@usgs.gov" }
   s.source	= { :svn => "http://svn.osgeo.org/metacrs/proj", :tag => '4.8.0' }
 
+  # gross hack to make this work with AFNetworking
+  s.compiler_flags = '-D_SYSTEMCONFIGURATION_H -D__MOBILECORESERVICES__ -D__CORESERVICES__'
+
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
 
