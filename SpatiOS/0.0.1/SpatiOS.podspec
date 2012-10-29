@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Van Simmons" => "rvsrvs@mac.com",
 		     "Juan J. Collas" => "jcollas@moreira.com" }
-  s.source	= { :git => "https://github.com/jcollas/SpatiOS.git", :commit => '903dd367ae' }
+  s.source	= { :git => "https://github.com/jcollas/SpatiOS.git", :commit => '2daf415602' }
 
   s.platform	 = :ios
 
