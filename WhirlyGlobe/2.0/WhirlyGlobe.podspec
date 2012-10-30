@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "WhirlyGlobe"
-  s.version      = "0.0.1"
+  s.version      = "2.0"
   s.summary      = "WhirlyGlobe is a self contained 3D earth display view suitable for use in iPhone and iPad applications."
   s.homepage     = "https://github.com/mousebird/WhirlyGlobe"
   s.license      = { :type => "Apache 2.0" }
   s.author       = { "Steve Gifford" => "sjg@mousebirdconsulting.com" }
-  s.source       = { :git => "https://github.com/mousebird/WhirlyGlobe.git", :commit => "b1acbb9bde" }
+  s.source       = { :git => "https://github.com/mousebird/WhirlyGlobe.git", :tag => "v2.0" }
 
   s.platform	 = :ios
   
