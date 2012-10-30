@@ -18,9 +18,9 @@ Pod::Spec.new do |s|
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/boost/boost_1_51_0/"' }
 
   s.subspec 'shared_ptr-includes' do |shared_ptr|
-    shared_ptr.source_files =	'boost_1_51_0/boost/shared_ptr.hpp',
+    shared_ptr.preserve_paths =	'boost_1_51_0/boost/shared_ptr.hpp',
 				'boost_1_51_0/boost/config.hpp',
-				'boost_1_51_0/boost/config/**',
+				'boost_1_51_0/boost/config/**/*.hpp',
 				'boost_1_51_0/boost/version.hpp',
 				'boost_1_51_0/boost/assert.hpp',
 				'boost_1_51_0/boost/current_function.hpp',
@@ -46,30 +46,30 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'pointer_cast-includes' do |pointer_cast|
-    pointer_cast.source_files = 'boost_1_51_0/boost/pointer_cast.hpp'
+    pointer_cast.preserve_paths = 'boost_1_51_0/boost/pointer_cast.hpp'
   end
 
   s.subspec 'numeric-includes' do |numeric|
-    numeric.source_files = 'boost_1_51_0/boost/numeric/**'
+    numeric.preserve_paths = 'boost_1_51_0/boost/numeric/**/*.hpp'
   end
 
   s.subspec 'preprocessor-includes' do |preprocessor|
-    preprocessor.source_files = 'boost_1_51_0/boost/preprocessor/**'
+    preprocessor.preserve_paths = 'boost_1_51_0/boost/preprocessor/**/*.hpp'
   end
 
   s.subspec 'math-includes' do |math|
-    math.source_files = 'boost_1_51_0/boost/math/**/*.hpp',
+    math.preserve_paths = 'boost_1_51_0/boost/math/**/*.hpp',
 			'boost_1_51_0/boost/limits.hpp',
 			'boost_1_51_0/boost/static_assert.hpp',
 			'boost_1_51_0/boost/cstdint.hpp',
 			'boost_1_51_0/boost/config.hpp',
-			'boost_1_51_0/boost/config/**',
+			'boost_1_51_0/boost/config/**/*.hpp',
 			'boost_1_51_0/boost/version.hpp',
 			'boost_1_51_0/boost/detail/endian.hpp',
 			'boost_1_51_0/boost/detail/limits.hpp',
-			'boost_1_51_0/boost/mpl/**',
+			'boost_1_51_0/boost/mpl/**/*.hpp',
 			'boost_1_51_0/boost/type_traits.hpp',
-			'boost_1_51_0/boost/type_traits/**'
+			'boost_1_51_0/boost/type_traits/**/*.hpp'
   end
 
 end

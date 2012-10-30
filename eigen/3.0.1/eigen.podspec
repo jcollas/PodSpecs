@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.header_mappings_dir = '.'
 
-  s.source_files = './Eigen/**'
+  s.preserve_paths = './Eigen/**'
 
   s.dependency 'boost/numeric-includes'
   s.dependency 'boost/preprocessor-includes'

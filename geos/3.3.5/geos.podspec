@@ -97,7 +97,9 @@ CONFIG_H
 #    File.delete("#{pod.root}/capi/geos_c.h.in");
   end
 
-  s.source_files = FileList['src/**/*.{cpp,h}'].exclude(/tests/), 'include/**', 'capi/*.{cpp,h,in}'
+#  s.source_files = FileList['src/**/*.{cpp,h}'].exclude(/tests/), 'include/**', 'capi/*.{cpp,h,in}'
+  s.source_files = FileList['src/**/*.cpp'].exclude(/tests/), 'capi/*.cpp'
+  s.preserve_paths = 'src/**/*.h', 'include/**/*.{h,inl,in}', 'capi/*.{h,in}'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi' }
 

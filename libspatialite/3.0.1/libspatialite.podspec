@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
   s.header_mappings_dir = "libspatialite-amalgamation-3.0.1"
 
 #  s.source_files = "libspatialite-3.0.1/src/**/*.{c,h}"
-  s.source_files = "libspatialite-amalgamation-3.0.1/*.c", "libspatialite-amalgamation-3.0.1/headers/**/*.h"
+  s.source_files = "libspatialite-amalgamation-3.0.1/*.c"
+  s.preserve_paths = "libspatialite-amalgamation-3.0.1/headers/**/*.h"
 
 #  s.library 	= 'sqlite3'
   s.dependency 'geos'
