@@ -15,8 +15,6 @@ Pod::Spec.new do |s|
 
 #  s.source_files = 'boost_1_51_0/boost/*.hpp', 'boost_1_51_0/boost/{config,smart_ptr}/**/*.hpp'
 
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/boost/boost_1_51_0/"' }
-
   s.subspec 'shared_ptr-includes' do |shared_ptr|
     shared_ptr.preserve_paths =	'boost_1_51_0/boost/shared_ptr.hpp',
 				'boost_1_51_0/boost/config.hpp',
@@ -71,5 +69,7 @@ Pod::Spec.new do |s|
 			'boost_1_51_0/boost/type_traits.hpp',
 			'boost_1_51_0/boost/type_traits/**/*.hpp'
   end
+
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/boost/boost_1_51_0/"' }
 
 end
