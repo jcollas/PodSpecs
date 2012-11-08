@@ -12,6 +12,8 @@ Pod::Spec.new do |s|
   s.source_files = 'WhirlyGlobeSrc/{WhirlyGlobeLib,WhirlyGlobeComponent}/{src,include}/**/*.{mm,m,h}'
   s.public_header_files = FileList['WhirlyGlobeSrc/{WhirlyGlobeLib,WhirlyGlobeComponent}/include/**/*.{h}'].exclude(/private/)
 
+  s.requires_arc = true
+
   s.dependency 'eigen'
   s.dependency 'boost/shared_ptr-includes'
   s.dependency 'boost/pointer_cast-includes'
