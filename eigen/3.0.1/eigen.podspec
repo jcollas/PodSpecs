@@ -11,6 +11,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
 
+  s.compiler_flags = '-DEIGEN_MPL2_ONLY'
+
   s.header_mappings_dir = '.'
 
   s.preserve_paths = './Eigen/**'
