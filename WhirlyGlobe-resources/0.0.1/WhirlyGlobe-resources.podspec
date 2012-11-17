@@ -25,8 +25,20 @@ Pod::Spec.new do |s|
     maps.resources = 'vectors/country_json_50m/*.geojson'
   end
 
-  s.subspec 'shapefiles' do |maps|
-    maps.resources = 'vectors/shapefiles/**'
+  s.subspec 'shapefiles-10m' do |maps|
+    maps.resources = 'vectors/shapefiles/10m*/**'
+  end
+
+  s.subspec 'shapefiles-50m' do |maps|
+    maps.resources = 'vectors/shapefiles/50m*/**'
+  end
+
+  s.subspec 'shapefiles-110m' do |maps|
+    maps.resources = 'vectors/shapefiles/110m*/**'
+  end
+
+  s.subspec 'databases' do |dbs|
+    dbs.resources = 'vectors/whirlyglobe-app-vector_cache/*'
   end
 
 end
