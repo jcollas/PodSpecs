@@ -71,8 +71,8 @@ Pod::Spec.new do |s|
 #define HAVE_LCHMOD 1
 #define HAVE_LCHOWN 1
 #define HAVE_LIBBZ2 1
-#define HAVE_LIBXML2 1
-#define HAVE_LIBXML_XMLREADER_H 1
+//#define HAVE_LIBXML2 1
+//#define HAVE_LIBXML_XMLREADER_H 1
 #define HAVE_LIBZ 1
 #define HAVE_LIMITS_H 1
 #define HAVE_LINK 1
@@ -178,8 +178,7 @@ CONFIG_H
 
   end
 
-  s.library = 'xml2'
-  s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
-
+#  s.library = 'xml2'
+#  s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 
 end

@@ -95,7 +95,22 @@ CONFIG_H
 
   end
 
-  s.source_files = FileList['**/*.cpp'].exclude(/apps/, /dods/, /ecw/, /epsilon/, /georaster/, /fits/, /grass/, /gta/, /hdf/, /jp2kak/, /jpeg2000/, /jpegls/, /jpipkak/, /mysql/), '**/*.h', '**/*.c'
+  optional_items = %w[
+    dods
+    ecw
+    epsilon
+    georaster
+    fits
+    grass
+    gta
+    jp2kak
+    jpeg2000
+    jpegls
+    jpipkak
+    mrsid
+    mysql ]
+
+  s.source_files = FileList['**/*.cpp'].exclude(/apps/, optional_items), '**/*.h', '**/*.c'
   s.preserve_paths = '**/*.inc'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/gdal ${PODS_ROOT}/gdal/frmts/pcidsk/sdk ${PODS_ROOT}/frmts/gtiff/libgeotiff' }
