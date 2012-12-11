@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name	= "librasterlite"
+  s.name	= "rasterlite"
   s.version	= "1.1c"
   s.summary	= "librasterlite is an open source library that stores and retrieves huge raster coverages using a SpatiaLite DBMS."
   s.homepage	= "https://www.gaia-gis.it/fossil/librasterlite/home"
@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
 
   s.source_files = "librasterlite-1.1c/src/*.c", "librasterlite-1.1c/headers/*.h"
 
-  s.dependency 'libspatialite'
+  s.dependency 'spatialite'
   s.dependency 'geotiff'
 
-#  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/libspatialite/librasterlite-1.1c/headers' }
+#  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/librasterlite-1.1c/headers' }
 
 end

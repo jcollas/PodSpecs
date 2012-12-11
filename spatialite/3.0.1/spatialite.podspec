@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name	= "libspatialite"
+  s.name	= "spatialite"
   s.version	= "3.0.1"
   s.summary	= "SpatiaLite is an open source library intended to extend the SQLite core to support fully fledged Spatial SQL capabilities."
   s.homepage	= "https://www.gaia-gis.it/fossil/libspatialite/home"
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.dependency 'proj4'
   s.dependency 'freexl'
 
-#  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/libspatialite/libspatialite-3.0.1/src/headers' }
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/libspatialite/libspatialite-amalgamation-3.0.1/headers' }
+#  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/libspatialite-3.0.1/src/headers' }
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/libspatialite-amalgamation-3.0.1/headers' }
 
 end

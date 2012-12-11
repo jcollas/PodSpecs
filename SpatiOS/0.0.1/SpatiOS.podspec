@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
   s.dependency 'geos'
   s.dependency 'proj4'
   s.dependency 'shapelib'
-  s.dependency 'libspatialite'
+  s.dependency 'spatialite'
   s.dependency 'SBJson'
 end
