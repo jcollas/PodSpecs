@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary	= "Tag Image File Format (TIFF) library."
   s.homepage	= "http://www.remotesensing.org/libtiff/"
   s.license	= { :type => "MIT",
-		    :file => "tiff-4.0.3/COPYRIGHT" }
+		    :file => "COPYRIGHT" }
   s.author	= "Sam Leffler"
   s.source	= { :http => "http://download.osgeo.org/libtiff/tiff-4.0.3.tar.gz" }
 
@@ -132,7 +132,7 @@ Pod::Spec.new do |s|
 #endif
 CONFIG_H
 
-    process_h_in("#{pod.root}/tiff-4.0.3/libtiff/tif_config.h", tif_config, nil, nil);
+    process_h_in("#{pod.root}/libtiff/tif_config.h", tif_config, nil, nil);
 
   tiffconf = <<-TIFFCONF_H
 #ifndef _TIFFCONF_
@@ -175,10 +175,10 @@ CONFIG_H
 #endif /* _TIFFCONF_ */
 TIFFCONF_H
 
-    process_h_in("#{pod.root}/tiff-4.0.3/libtiff/tiffconf.h", tiffconf, nil, nil);
+    process_h_in("#{pod.root}/libtiff/tiffconf.h", tiffconf, nil, nil);
   end
 
-  s.source_files = FileList["tiff-4.0.3/libtiff/**.{cxx,c,h}"].exclude(/win32/)
+  s.source_files = FileList["libtiff/**.{cxx,c,h}"].exclude(/win32/)
 
   s.library = 'z'
 
